@@ -28,19 +28,21 @@ function check_pearson_criterion(alpha, v, n, m, tmean, sigma)
     r = m - 2 - 1;
     chi_square_2 = chi2inv(1 - alpha, r);
     
-    id = fopen('..\..\output.txt', 'wt');
+    id = fopen('../../output.txt', 'a');
     
     fprintf(id, 'Pearson''s Chi-Squared Test Result:\n\n');
-    fprintf(id, 'Empirical Chi-Square value ''X^2'': %.3f\n', chi_square_1);
-    fprintf(id, 'Significance ''alpha'':             %.3f\n', alpha);
-    fprintf(id, 'Degrees of freedom ''r'':           %.3f\n', r);
-    fprintf(id, 'Chi-Square value ''X^2(alpha, r)'': %.3f\n', chi_square_2);
+    fprintf(id, 'Empirical Chi-Square value ''X^2'':    %.3f\n', chi_square_1);
+    fprintf(id, 'Significance level ''alpha'':          %.3f\n', alpha);
+    fprintf(id, 'Degrees of freedom ''r'':              %.3f\n', r);
+    fprintf(id, 'Chi-Square value ''X^2(alpha, r)'':    %.3f\n', chi_square_2);
     
     if (chi_square_1 < chi_square_2)
-        fprintf(id, '\n''X^2'' < ''X^2(alpha, r)''\n');
-        fprintf(id, 'The hypothesis of the normal distribution was accepted.');
+        fprintf(id, '\n''X^2'' = %.3f < ''X^2(alpha, r)'' = %.3f\n', chi_square_1, chi_square_2);
+        fprintf(id, 'The hypothesis of the normal distribution was accepted.\n\n\n\n');
     else
-        fprintf(id, '\n''X^2'' > ''X^2(alpha, r)''\n');
-        fprintf(id, 'The hypothesis of the normal distribution was not accepted.');
+        fprintf(id, '\n''X^2'' = %.3f > ''X^2(alpha, r)'' = %.3f\n', chi_square_1, chi_square_2);
+        fprintf(id, 'The hypothesis of the normal distribution was not accepted.\n\n\n\n');
     end
+    
+    fclose(id);
 end

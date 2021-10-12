@@ -19,4 +19,9 @@ print_hystogram(l, n, m, lmean, sigma);
 print_cumulative_distribution_graph(l, n, m, lmean, sigma);
 
 load('../../alpha.txt');
+
+id = fopen('../../output.txt', 'w');
+fclose(id);
+
 check_pearson_criterion(alpha, l, n, m, lmean, sigma);
+check_kolmogorov_criterion(alpha, l, n, m, lmean, sigma);

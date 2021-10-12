@@ -34,6 +34,7 @@ function print_hystogram(v, n, m, tmean, sigma)
     ylabel('$f_N(t), \rm mm^{-1}$', 'Interpreter', 'latex', 'FontSize', 12);
     legend('$\hat{f}_N(t)$', '$f_N(t)$', 'Interpreter', 'latex', 'FontSize', 10);
     
-    saveas(gcf, '..\..\graphs\hystogram.emf');
+    mkdir ../../graphs;
+    saveas(gcf, '../../graphs/hystogram.emf');
 end
 

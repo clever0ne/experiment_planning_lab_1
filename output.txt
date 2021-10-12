@@ -1,9 +1,23 @@
 Pearson's Chi-Squared Test Result:
 
-Empirical Chi-Square value 'X^2': 3.189
-Significance 'alpha':             0.100
-Degrees of freedom 'r':           2.000
-Chi-Square value 'X^2(alpha, r)': 4.605
+Empirical Chi-Square value 'X^2':    3.189
+Significance level 'alpha':          0.100
+Degrees of freedom 'r':              2.000
+Chi-Square value 'X^2(alpha, r)':    4.605
 
-'X^2' < 'X^2(alpha, r)'
+'X^2' = 3.189 < 'X^2(alpha, r)' = 4.605
 The hypothesis of the normal distribution was accepted.
+
+
+
+Kolmogorov – Smirnov Test Result:
+
+Empirical value 'lambda':            1.016
+Significance level 'alpha':          0.100
+Critical value 'lambda_critical':    1.224
+
+'lambda' = 1.016 < 'lambda_critical' = 1.224
+The hypothesis of the normal distribution was accepted.
+
+
+

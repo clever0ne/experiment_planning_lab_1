@@ -34,5 +34,6 @@ function print_cumulative_distribution_graph(v, n, m, tmean, sigma)
     ylabel('$F_N(t)$', 'Interpreter', 'latex', 'FontSize', 12);
     legend('$\hat{F}_N(t)$', '$F_N(t)$', 'Interpreter', 'latex', 'FontSize', 10);
     
-    saveas(gcf, '..\..\graphs\cumulative_distribution.emf');
+    mkdir ../../graphs;
+    saveas(gcf, '../../graphs/cumulative_distribution.emf');
 end
