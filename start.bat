@@ -1,0 +1,1 @@
+matlab -nodisplay -nosplash -nodesktop -r "try, run('src\main\calculate.m'), catch, exit, end"
