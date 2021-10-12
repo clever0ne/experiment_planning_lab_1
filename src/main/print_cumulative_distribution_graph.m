@@ -36,4 +36,3 @@ function print_cumulative_distribution_graph(v, n, m, tmean, sigma)
     
     saveas(gcf, '..\..\graphs\cumulative_distribution.emf');
 end
-

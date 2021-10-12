@@ -1,11 +1,12 @@
 function [f1, f2] = cumulative_distribution(t, v, n, m, tmean, sigma)
     if (nargin < 3)
-        nu = observed_frequency(v);
         n = length(v);
         m = round(sqrt(n));
         if (mod(m, 2) ~= 1)
             m = m + 1;
         end
+        
+        nu = observed_frequency(v);
     elseif (nargin < 4)
         nu = observed_frequency(v, n);
     else
@@ -45,6 +46,5 @@ function [f1, f2] = cumulative_distribution(t, v, n, m, tmean, sigma)
         
     end
     
-    f2 = (1 + erf((t - tmean) / sigma)) / 2;
+    f2 = erfc(-(t - tmean) / (sqrt(2) * sigma)) / 2;
 end
-

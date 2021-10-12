@@ -24,4 +24,3 @@ function nu = observed_frequency(v, n, m)
         nu(i) = nu(i) + 1;
     end
 end
-

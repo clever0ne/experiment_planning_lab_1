@@ -1,11 +1,12 @@
 function [p1, p2] = probability_density(t, v, n, m, tmean, sigma)
     if (nargin < 3)
-        nu = observed_frequency(v);
         n = length(v);
         m = round(sqrt(n));
         if (mod(m, 2) ~= 1)
             m = m + 1;
         end
+        
+        nu = observed_frequency(v);
     elseif (nargin < 4)
         nu = observed_frequency(v, n);
     else
@@ -41,4 +42,3 @@ function [p1, p2] = probability_density(t, v, n, m, tmean, sigma)
     
     p2 = exp(-(t - tmean) .^ 2 / (2 * sigma ^ 2)) / (sqrt(2 * pi) * sigma);
 end
-

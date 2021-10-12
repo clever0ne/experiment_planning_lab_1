@@ -1,0 +1,9 @@
+Pearson's Chi-Squared Test Result:
+
+Empirical Chi-Square value 'X^2': 3.189
+Significance 'alpha':             0.100
+Degrees of freedom 'r':           2.000
+Chi-Square value 'X^2(alpha, r)': 4.605
+
+'X^2' < 'X^2(alpha, r)'
+The hypothesis of the normal distribution was accepted.

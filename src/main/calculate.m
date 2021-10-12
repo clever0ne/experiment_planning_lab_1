@@ -15,6 +15,8 @@ if (mod(m, 2) ~= 1)
     m = m + 1;
 end
 
-nu = observed_frequency(l, n, m);
 print_hystogram(l, n, m, lmean, sigma);
 print_cumulative_distribution_graph(l, n, m, lmean, sigma);
+
+load('../../alpha.txt');
+check_pearson_criterion(alpha, l, n, m, lmean, sigma);
