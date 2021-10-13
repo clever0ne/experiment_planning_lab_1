@@ -31,8 +31,8 @@ function print_cumulative_distribution_graph(v, n, m, tmean, sigma)
     
     set(gca, 'FontName', 'Euclid', 'FontSize', 12);
     xlabel('$t, \rm mm$', 'Interpreter', 'latex', 'FontSize', 12);
-    ylabel('$F_N(t)$', 'Interpreter', 'latex', 'FontSize', 12);
-    legend('$\hat{F}_N(t)$', '$F_N(t)$', 'Interpreter', 'latex', 'FontSize', 10);
+    ylabel('$F_n(t)$', 'Interpreter', 'latex', 'FontSize', 12);
+    legend('$\hat{F}_n(t)$', '$F_n(t)$', 'Interpreter', 'latex', 'FontSize', 10);
     
     mkdir ../../graphs;
     saveas(gcf, '../../graphs/cumulative_distribution.emf');

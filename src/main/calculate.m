@@ -15,6 +15,7 @@ if (mod(m, 2) ~= 1)
     m = m + 1;
 end
 
+print_lengths_table(l, n);
 print_hystogram(l, n, m, lmean, sigma);
 print_cumulative_distribution_graph(l, n, m, lmean, sigma);
 

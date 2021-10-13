@@ -24,16 +24,16 @@ function check_kolmogorov_criterion(alpha, v, n, m, tmean, sigma)
     id = fopen('../../output.txt', 'a');
     
     fprintf(id, 'Kolmogorov – Smirnov Test Result:\n\n');
-    fprintf(id, 'Empirical value ''lambda'':            %.3f\n', lambda_1);
-    fprintf(id, 'Significance level ''alpha'':          %.3f\n', alpha);
-    fprintf(id, 'Critical value ''lambda_critical'':    %.3f\n', lambda_2);
+    fprintf(id, 'Significance level ''alpha'':             %.3f\n', alpha);
+    fprintf(id, 'Empirical value ''lambda'':               %.3f\n', lambda_1);
+    fprintf(id, 'Critical value ''lambda_critical'':       %.3f\n', lambda_2);
     
     if (lambda_1 < lambda_2)
         fprintf(id, '\n''lambda'' = %.3f < ''lambda_critical'' = %.3f\n', lambda_1, lambda_2);
         fprintf(id, 'The hypothesis of the normal distribution was accepted.\n\n\n\n');
     else
         fprintf(id, '\n''lambda'' = %.3f > ''lambda_critical'' = %.3f\n', lambda_1, lambda_2);
-        fprintf(id, 'The hypothesis of the normal distribution was not accepted.\n\n\n\n');
+        fprintf(id, 'The hypothesis of the normal distribution was denied.\n\n\n\n');
     end
     
     fclose(id);

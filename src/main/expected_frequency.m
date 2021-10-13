@@ -24,7 +24,7 @@ function np = expected_frequency(v, n, m, tmean, sigma)
     dt = (tmax - tmin) / m;
     
     t = (tmin : dt : tmax)';
-    x = -(t - tmean) / (sqrt(2) * sigma);
-    np = n * (erfc(x(2 : end)) - erfc(x(1 : end - 1))) / 2;
+    x = (t - tmean) / (sqrt(2) * sigma);
+    np = n * (erf(x(2 : end)) - erf(x(1 : end - 1))) / 2;
 end
 

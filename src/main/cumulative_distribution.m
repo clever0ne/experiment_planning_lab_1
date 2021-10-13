@@ -46,5 +46,5 @@ function [f1, f2] = cumulative_distribution(t, v, n, m, tmean, sigma)
         
     end
     
-    f2 = erfc(-(t - tmean) / (sqrt(2) * sigma)) / 2;
+    f2 = (1 + erf((t - tmean) / (sqrt(2) * sigma))) / 2;
 end

@@ -31,8 +31,8 @@ function print_hystogram(v, n, m, tmean, sigma)
     
     set(gca, 'FontName', 'Euclid', 'FontSize', 12);
     xlabel('$t, \rm mm$', 'Interpreter', 'latex', 'FontSize', 12);
-    ylabel('$f_N(t), \rm mm^{-1}$', 'Interpreter', 'latex', 'FontSize', 12);
-    legend('$\hat{f}_N(t)$', '$f_N(t)$', 'Interpreter', 'latex', 'FontSize', 10);
+    ylabel('$f_n(t), \rm mm^{-1}$', 'Interpreter', 'latex', 'FontSize', 12);
+    legend('$\hat{f}_n(t)$', '$f_n(t)$', 'Interpreter', 'latex', 'FontSize', 10);
     
     mkdir ../../graphs;
     saveas(gcf, '../../graphs/hystogram.emf');
