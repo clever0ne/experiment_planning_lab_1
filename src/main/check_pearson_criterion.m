@@ -31,10 +31,10 @@ function check_pearson_criterion(alpha, v, n, m, tmean, sigma)
     id = fopen('../../output.txt', 'a');
     
     fprintf(id, 'Pearson''s Chi-Squared Test Result:\n\n');
-    fprintf(id, 'Degrees of freedom ''r'':                 %.3f\n', r);
-    fprintf(id, 'Significance level ''alpha'':             %.3f\n', alpha);
-    fprintf(id, 'Empirical Chi-Square value ''X^2(n)'':    %.3f\n', chi_square_1);
-    fprintf(id, 'Chi-Square value ''X^2(r, alpha)'':       %.3f\n', chi_square_2);
+    fprintf(id, 'Degrees of freedom ''r'':                 %8.3f\n', r);
+    fprintf(id, 'Significance level ''alpha'':             %8.3f\n', alpha);
+    fprintf(id, 'Empirical Chi-Square value ''X^2(n)'':    %8.3f\n', chi_square_1);
+    fprintf(id, 'Chi-Square value ''X^2(r, alpha)'':       %8.3f\n', chi_square_2);
     
     if (chi_square_1 < chi_square_2)
         fprintf(id, '\n''X^2(n)'' = %.3f < ''X^2(alpha, r)'' = %.3f\n', chi_square_1, chi_square_2);

@@ -7,8 +7,9 @@ function print_cumulative_distribution_graph(v, n, m, tmean, sigma)
         sigma = std(v, 1);
     end
 
-    tmin = round(tmean - 3 * sigma);
-    tmax = round(tmean + 3 * sigma);
+    v = sort(v);
+    tmin = round(min(tmean - 3 * sigma, tmean - 1.1 * abs(tmean - v(1))));
+    tmax = round(max(tmean + 3 * sigma, tmean + 1.1 * abs(tmean - v(end))));
     dt = 0.001;
     
     t = (tmin : dt : tmax)';
@@ -26,7 +27,11 @@ function print_cumulative_distribution_graph(v, n, m, tmean, sigma)
     
     figure('Name', 'Empirical Cumulative Distribution Function');
     plot(t, f1, 'r-', t, f2, 'b--');
-    axis([tmin, tmax, 0, round(105 * max([f1', f2'])) / 100]);
+    try
+        axis([tmin, tmax, 0, round(1100 * max([f1', f2'])) / 1000]);
+    catch
+        axis([tmin, tmax, 0, 1.1 * max([f1', f2'])]);
+    end
     grid on;
     
     set(gca, 'FontName', 'Euclid', 'FontSize', 12);
@@ -34,6 +39,7 @@ function print_cumulative_distribution_graph(v, n, m, tmean, sigma)
     ylabel('$F_n(t)$', 'Interpreter', 'latex', 'FontSize', 12);
     legend('$\hat{F}_n(t)$', '$F_n(t)$', 'Interpreter', 'latex', 'FontSize', 10);
     
+    warning('off', 'MATLAB:MKDIR:DirectoryExists');
     mkdir ../../graphs;
     saveas(gcf, '../../graphs/cumulative_distribution.emf');
 end

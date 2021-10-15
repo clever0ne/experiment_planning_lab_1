@@ -1,16 +1,13 @@
 function [f1, f2] = cumulative_distribution(t, v, n, m, tmean, sigma)
     if (nargin < 3)
         n = length(v);
+    end
+
+    if (nargin < 4)
         m = round(sqrt(n));
         if (mod(m, 2) ~= 1)
             m = m + 1;
         end
-        
-        nu = observed_frequency(v);
-    elseif (nargin < 4)
-        nu = observed_frequency(v, n);
-    else
-        nu = observed_frequency(v, n, m);
     end
     
     if (nargin < 5)
@@ -24,7 +21,6 @@ function [f1, f2] = cumulative_distribution(t, v, n, m, tmean, sigma)
     v = sort(v);
     tmin = v(1);
     tmax = v(end);
-    dt = (tmax - tmin) / m;
     
     f1 = zeros(length(t), 1);
     for i = 1 : length(t)
@@ -38,12 +34,11 @@ function [f1, f2] = cumulative_distribution(t, v, n, m, tmean, sigma)
         end
         
         j = 1;
-        while (t(i) > tmin + dt * j)
+        while (t(i) > v(j) && j <= n)
             j = j + 1;
         end
         
-        f1(i) = sum(nu(1 : j)) / n;
-        
+        f1(i) = (j - 1) / n;
     end
     
     f2 = (1 + erf((t - tmean) / (sqrt(2) * sigma))) / 2;

@@ -40,5 +40,5 @@ function [p1, p2] = probability_density(t, v, n, m, tmean, sigma)
         p1(i) = nu(j) / (n * dt);
     end
     
-    p2 = exp(-(t - tmean) .^ 2 / (2 * sigma ^ 2)) / (sqrt(2 * pi) * sigma);
+    p2 = gaussmf(t, [sigma, tmean]) / (sqrt(2 * pi) * sigma);
 end

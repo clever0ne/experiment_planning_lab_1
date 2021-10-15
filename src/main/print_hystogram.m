@@ -7,8 +7,9 @@ function print_hystogram(v, n, m, tmean, sigma)
         sigma = std(v, 1);
     end
 
-    tmin = round(tmean - 3 * sigma);
-    tmax = round(tmean + 3 * sigma);
+    v = sort(v);
+    tmin = round(min(tmean - 3 * sigma, tmean - 1.1 * abs(tmean - v(1))));
+    tmax = round(max(tmean + 3 * sigma, tmean + 1.1 * abs(tmean - v(end))));
     dt = 0.001;
     
     t = (tmin : dt : tmax)';
@@ -26,7 +27,11 @@ function print_hystogram(v, n, m, tmean, sigma)
     
     figure('Name', 'Hystogram');
     plot(t, p1, 'r-', t, p2, 'b--');
-    axis([tmin, tmax, 0, round(105 * max([p1', p2'])) / 100]);
+    try
+        axis([tmin, tmax, 0, round(1100 * max([p1', p2'])) / 1000]);
+    catch
+        axis([tmin, tmax, 0, 1.1 * max([p1', p2'])]);
+    end
     grid on;
     
     set(gca, 'FontName', 'Euclid', 'FontSize', 12);
@@ -34,6 +39,7 @@ function print_hystogram(v, n, m, tmean, sigma)
     ylabel('$f_n(t), \rm mm^{-1}$', 'Interpreter', 'latex', 'FontSize', 12);
     legend('$\hat{f}_n(t)$', '$f_n(t)$', 'Interpreter', 'latex', 'FontSize', 10);
     
+    warning('off', 'MATLAB:MKDIR:DirectoryExists');
     mkdir ../../graphs;
     saveas(gcf, '../../graphs/hystogram.emf');
 end
