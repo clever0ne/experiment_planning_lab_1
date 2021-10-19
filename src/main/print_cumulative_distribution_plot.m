@@ -1,4 +1,4 @@
-function print_cumulative_distribution_graph(v, n, m, tmean, sigma)
+function print_cumulative_distribution_plot(v, n, m, tmean, sigma)
     if (nargin < 5)
         tmean = mean(v);
     end
@@ -41,5 +41,5 @@ function print_cumulative_distribution_graph(v, n, m, tmean, sigma)
     
     warning('off', 'MATLAB:MKDIR:DirectoryExists');
     mkdir ../../graphs;
-    saveas(gcf, '../../graphs/cumulative_distribution.emf');
+    saveas(gcf, '../../graphs/cumulative_distribution_plot.emf');
 end

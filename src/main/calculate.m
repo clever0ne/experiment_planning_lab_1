@@ -16,8 +16,9 @@ if (mod(m, 2) ~= 1)
 end
 
 print_lengths_table(l, n);
-print_hystogram(l, n, m, lmean, sigma);
-print_cumulative_distribution_graph(l, n, m, lmean, sigma);
+print_probability_density_plot(l, n, m, lmean, sigma);
+print_cumulative_distribution_plot(l, n, m, lmean, sigma);
+print_quantile_quantile_plot(l, n, m, lmean, sigma);
 
 load('../../alpha.txt');
 

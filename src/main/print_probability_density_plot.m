@@ -1,4 +1,4 @@
-function print_hystogram(v, n, m, tmean, sigma)
+function print_probability_density_plot(v, n, m, tmean, sigma)
     if (nargin < 4)
         tmean = tmean(v);
     end
@@ -25,7 +25,7 @@ function print_hystogram(v, n, m, tmean, sigma)
         [p1, p2] = probability_density(t, v, n, m, tmean, sigma);
     end
     
-    figure('Name', 'Hystogram');
+    figure('Name', 'Probability Density');
     plot(t, p1, 'r-', t, p2, 'b--');
     try
         axis([tmin, tmax, 0, round(1100 * max([p1', p2'])) / 1000]);
@@ -41,6 +41,6 @@ function print_hystogram(v, n, m, tmean, sigma)
     
     warning('off', 'MATLAB:MKDIR:DirectoryExists');
     mkdir ../../graphs;
-    saveas(gcf, '../../graphs/hystogram.emf');
+    saveas(gcf, '../../graphs/probability_density_plot.emf');
 end
 
